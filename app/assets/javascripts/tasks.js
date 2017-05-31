@@ -1,27 +1,3 @@
-<section class="todoapp">
-  <header class="header">
-    <h1>todos</h1>
-    <form id="new-form">
-      <input type="text" class="new-todo" placeholder="What needs to be done?" />
-    </form>
-  </header>
-
-  <section class="main">
-    <ul class="todo-list">
-
-    </ul>
-  </section>
-</section>
-
-<section class="author">
-  A <%= link_to "todo-mvc", "http://todomvc.com" %>
-  application, built by
-  <%= link_to "Grace Mallett", "http://github.com/gmmallett" %>
-</section>
-
-
-
-<script>
   $(function() {
     // The taskHtml method takes in a JavaScript representation
     // of the task and produces an HTML representation using
@@ -64,15 +40,12 @@
       } );
     }
 
-
     $.get("/tasks").success( function( data ) {
       var htmlString = "";
 
       $.each(data, function(index,  task) {
-
         htmlString += taskHtml(task);
       });
-
       var ulTodos = $('.todo-list');
       ulTodos.html(htmlString);
 
@@ -96,8 +69,7 @@
         $('.toggle').click(toggleTask);
         $('.new-todo').val('');
 
-
-      });
+      })
     });
+
   });
-</script>
